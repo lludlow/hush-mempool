@@ -18,7 +18,7 @@
 */
 
 $dbtype = "sqlite";
-$dbdatabase = "/home/explorer/mempool/mempool.s3db";
+$dbdatabase = "/home/madbuda/mempool/mempool.s3db";
 $dbdsn = "$dbtype:$dbdatabase";
 $dbuser = "";
 $dbpass = "";

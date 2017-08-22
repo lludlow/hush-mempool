@@ -1,7 +1,7 @@
 #!/bin/bash
 
-BITCOINCLI=/usr/bin/zcash-cli
-MEMPOOLHOME=/home/explorer/mempool
+BITCOINCLI=/usr/bin/hush-cli
+MEMPOOLHOME=/home/madbuda/mempool
 
 cd $MEMPOOLHOME
 $BITCOINCLI getrawmempool true | perl mempool-sql.pl
