@@ -17,7 +17,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-$dbtype	= "sqlite";
+$dbtype = "sqlite";
 $dbdatabase = "/home/explorer/mempool/mempool.s3db";
 $dbdsn = "$dbtype:$dbdatabase";
 $dbuser = "";
@@ -48,18 +48,19 @@ try {
     $comma="";
     $ctr = $increment;
     while ($row = $query->fetch(PDO::FETCH_NUM)) {
-    	if ($ctr > 1) {
-	    $ctr--;
-	    continue;
-	}
-	for ($i = 0; $i < 73; $i++) {
-	    if (!isset($row[1+$i])) { $row[1+$i] = 0; };
-	}
-    	echo $comma.'['.$row[0].',['.
-	     join(',', array_slice($row, 1, 36)).'],['.
-	     join(',', array_slice($row, 37, 36)).'],'.$row[73].']';
-	$comma = ",\n";
-	$ctr = $increment;
+        if ($ctr > 1) {
+        $ctr--;
+        continue;
+    }
+    for ($i = 0; $i < 3*36+1; $i++) {
+        if (!isset($row[1+$i])) { $row[1+$i] = 0; };
+    }
+        echo $comma.'['.$row[0].',['.
+         join(',', array_slice($row, 1, 36)).'],['.
+         join(',', array_slice($row, 37, 36)).'],['.
+         join(',', array_slice($row, 73, 36)).']]';
+    $comma = ",\n";
+    $ctr = $increment;
     }
     echo "]);\n";
     exit;
