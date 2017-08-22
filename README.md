@@ -1,13 +1,12 @@
-# Zcash Mempool Statistics
+# Hush Mempool Statistics
 
-This is the code to create the mempool statistics for zcash that will be online
-at https://insight.mercerweiss.com/queue
+This is the code to create the mempool statistics for hush [View it here ](http://mempool.madmining.club/queue)
 
 ## Installation: Part 1 - Logging
 
 You need to be running a bitcoin full node.  It can be a pruned node or an
 archival node.  I assume you have already set it up.  You also need to
-support RPC to this node.  Add rpcuser/rpcpassword to zcash.conf to enable
+support RPC to this node.  Add rpcuser/rpcpassword to hush.conf to enable
 this.
 
 I recommend to create a new user `mempool`.   Checkout this repository into
@@ -15,14 +14,14 @@ his home directory:
 
     sudo -H -u mempool bash
     cd $HOME
-    git clone https://github.com/radix42/mempool
+    git clone https://github.com/madbuda/hush-mempool mempool
 
 Edit `mempool.sh` to adapt paths as necessary, especially the path to 
-zcash-cli.  Add a zcash.conf with rpcuser/rpcpassword settings to 
-`/home/mempool/.zcash`, to be able to use zcash-cli.  You can test your
+hush-cli.  Add a hush.conf with rpcuser/rpcpassword settings to 
+`/home/mempool/.hush`, to be able to use hush-cli.  You can test your
 setup by running
 
-    zcash-cli getinfo
+    hush-cli getinfo
 
 Install `sqlite3` and create a new empty database. Then you can test your
 configuration by running mempool.sh

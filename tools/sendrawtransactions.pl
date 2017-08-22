@@ -5,11 +5,11 @@ use Data::Dumper;
 
 my $port = 8232;
 
-if (open COOKIE, "<$ENV{HOME}/.zcash/.cookie") {
+if (open COOKIE, "<$ENV{HOME}/.hush/.cookie") {
 	$_=<COOKIE>;
 	($user,$pwd) = split ":", $_;
 	close COOKIE;
-} elsif (open CONFIG, "<$ENV{HOME}/.zcash/zcash.conf") {
+} elsif (open CONFIG, "<$ENV{HOME}/.hush/hush.conf") {
 	while (<CONFIG>) {
 	    /rpcuser=(.*)/ and $user = $1;
 	    /rpcpassword=(.*)/ and $pwd = $1;
